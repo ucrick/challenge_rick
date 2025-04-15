@@ -6,8 +6,7 @@ json_data = [
     '{"type": "rectangle", "width": 5, "height": 10}',
     '{"type": "triangle", "base": 2, "height": 3}',
     '{"type": "circle", "radius": 4}',
-    '{"type": "rectangle", "width": 5, "height": 5}',
-    '{"type": "ellipse", "top": 5, "height": 5, "bottom": 10}'
+    '{"type": "rectangle", "width": 5, "height": 5}'
 ]
 
 #Registry for all shape types
