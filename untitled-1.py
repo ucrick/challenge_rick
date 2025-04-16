@@ -2,14 +2,26 @@ import json
 import math
 from typing import Dict, Any
 from pydantic import BaseModel, ValidationError, root_validator
+import logging
 
 #Define JSON data
 json_data = [
     '{"type": "rectangle", "width": 5, "height": 10}',
     '{"type": "triangle", "base": 2, "height": 3}',
     '{"type": "circle", "radius": 4}',
-    '{"type": "rectangle", "width": 5, "height": 5}'
+    '{"type": "rectangle", "width": 5, "height": 5}',
+    '{"type": "rectangle", "width": "qwe", "height": 5}'
 ]
+
+#Logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    handlers=[
+        logging.FileHandler("shape_processor.log", encoding="utf-8"),
+        logging.StreamHandler()
+    ]
+)
 
 #Registry for all shape types
 shape_registry = {}
@@ -96,16 +108,22 @@ class Trapezoid(Shape):
 #Calculate the area of all shapes
 def calculate_total_area(json_data):
     total_area = 0
-    for line in json_data:
-        shape_data = json.loads(line)
-        shape_type = shape_data["type"].lower()
-        shape_class = shape_registry.get(shape_type)
-        if not shape_class:
-            raise ValueError(f"Unrecognized shape type: {shape_type}")
-        shape = shape_class(shape_data)
-        total_area += shape.area()
+    for i, line in enumerate(json_data, 1):
+        try:
+            shape_data = json.loads(line)
+            shape_type = shape_data.get("type", "").lower()
+            shape_class = shape_registry.get(shape_type)
+            if not shape_class:
+                raise ValueError(f"Unknown shape type: '{shape_type}'")
+            shape = shape_class(shape_data)
+            area = shape.area()
+            total_area += area
+            logging.debug(f"Line {i}: {shape_type} -> Area = {area:.2f}")
+        except (ValidationError, ValueError, KeyError, TypeError) as e:
+            logging.warning(f"[Line {i}] Skipped due to error: {e}")
     return total_area
 
 if __name__ == "__main__":
+    logging.info("Start")
     total = calculate_total_area(json_data)
-    print(f"Total area: {total:.2f}")
+    logging.info(f"Total valid area: {total:.2f}")
