@@ -9,8 +9,7 @@ json_data = [
     '{"type": "rectangle", "width": 5, "height": 10}',
     '{"type": "triangle", "base": 2, "height": 3}',
     '{"type": "circle", "radius": 4}',
-    '{"type": "rectangle", "width": 5, "height": 5}',
-    '{"type": "rectangle", "width": "qwe", "height": 5}'
+    '{"type": "rectangle", "width": 5, "height": 5}'
 ]
 
 #Logging
