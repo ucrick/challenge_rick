@@ -44,35 +44,17 @@ class TrapezoidSchema(BaseModel):
 #Calculation
 def compute_area(type_, radius, width, height, base, top, bottom):
     try:
-        shape_data = {
-            "type": type_,
-            "radius": radius,
-            "width": width,
-            "height": height,
-            "base": base,
-            "top": top,
-            "bottom": bottom
-        }
-
-        if type_ == "circle":
-            CircleSchema(**shape_data)
+        if type_ == "circle" and radius is not None:
             return math.pi * radius ** 2
-        elif type_ == "rectangle":
-            RectangleSchema(**shape_data)
+        elif type_ == "rectangle" and width is not None and height is not None:
             return width * height
-        elif type_ == "triangle":
-            TriangleSchema(**shape_data)
+        elif type_ == "triangle" and base is not None and height is not None:
             return 0.5 * base * height
-        elif type_ == "trapezoid":
-            TrapezoidSchema(**shape_data)
+        elif type_ == "trapezoid" and top is not None and bottom is not None and height is not None:
             return 0.5 * (top + bottom) * height
         else:
-            logging.warning(f"Unknown shape type: {type_}")
+            logging.warning(f"Incomplete data for shape {type_}")
             return None
-
-    except ValidationError as e:
-        logging.warning(f"Validation failed for shape {type_}: {e}")
-        return None
     except Exception as e:
         logging.error(f"Unexpected error for shape {type_}: {e}")
         return None
@@ -94,16 +76,18 @@ def main():
 
     #df = spark.read.schema(schema).json("shapes.jsonl")
     
-    data = [
-        {"type": "rectangle", "width": 5, "height": 10},
-        {"type": "triangle", "base": 2, "height": 3},
-        {"type": "circle", "radius": 4},
-        {"type": "rectangle", "width": 5, "height": 5},
-        {"type": "trapezoid", "top": 3, "bottom": 5, "height": 4}
+    raw_data = [
+        {"type": "circle", "radius": 4.0},
+        {"type": "rectangle", "width": 5.0, "height": 5.0},
+        {"type": "triangle", "base": 2.0, "height": 3.0},
+        {"type": "trapezoid", "top": 3.0, "bottom": 5.0, "height": 4.0},
+        {"type": "rectangle", "width": 10.0}  # missing height
     ]
-    df = spark.createDataFrame(data, schema=schema)    
-    
+
+    df = spark.createDataFrame(raw_data, schema=schema)
+
     area_udf = udf(compute_area, DoubleType())
+
     df_with_area = df.withColumn(
         "area",
         area_udf(
@@ -118,8 +102,10 @@ def main():
     )
 
     df_with_area.show(truncate=False)
+
     total_area = df_with_area.selectExpr("sum(area) as total_area").collect()[0]["total_area"]
-    logging.info(f"Total area of all valid shapes: {total_area:.2f}")
+    #logging.info(f"Total area of all valid shapes: {total_area:.2f}")
+    print(f"Total area of all valid shapes: {total_area:.2f}")
 
     spark.stop()
 
