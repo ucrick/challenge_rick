@@ -26,3 +26,11 @@ width
 2025-04-20 14:59:40,154 [INFO] Start
 2025-04-20 14:59:40,154 [WARNING] [Line 5] Skipped due to error: Unknown shape type: 'diamond'
 2025-04-20 14:59:40,154 [INFO] Total valid area: 128.27
+2025-04-20 15:48:16,727 [INFO] Start
+2025-04-20 15:48:16,728 [INFO] Total valid area: 128.27
+2025-04-20 18:15:29,613 [INFO] Start
+2025-04-20 18:15:29,613 [WARNING] [Line 4] Skipped due to error: 1 validation error for RectangleSchema
+width
+  Field required [type=missing, input_value={'type': 'rectangle', 'height': 5}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+2025-04-20 18:15:29,613 [INFO] Total valid area: 103.27
