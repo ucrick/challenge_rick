@@ -1,0 +1,8 @@
+2025-04-17 09:07:12,049 [INFO] Start
+2025-04-17 09:07:12,049 [INFO] Total valid area: 128.27
+2025-04-17 09:07:46,732 [INFO] Start
+2025-04-17 09:07:46,732 [WARNING] [Line 5] Skipped due to error: 1 validation error for RectangleSchema
+width
+  Input should be a valid number, unable to parse string as a number [type=float_parsing, input_value='qwe', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.10/v/float_parsing
+2025-04-17 09:07:46,732 [INFO] Total valid area: 128.27
