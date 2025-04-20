@@ -6,3 +6,23 @@ width
   Input should be a valid number, unable to parse string as a number [type=float_parsing, input_value='qwe', input_type=str]
     For further information visit https://errors.pydantic.dev/2.10/v/float_parsing
 2025-04-17 09:07:46,732 [INFO] Total valid area: 128.27
+2025-04-20 14:57:42,534 [INFO] Start
+2025-04-20 14:57:42,556 [INFO] Total valid area: 128.27
+2025-04-20 14:57:51,986 [INFO] Start
+2025-04-20 14:57:51,986 [INFO] Total valid area: 153.27
+2025-04-20 14:58:07,818 [INFO] Start
+2025-04-20 14:58:07,818 [INFO] Total valid area: 718.27
+2025-04-20 14:58:18,173 [INFO] Start
+2025-04-20 14:58:18,173 [INFO] Total valid area: 128.27
+2025-04-20 14:58:28,150 [INFO] Start
+2025-04-20 14:58:28,186 [WARNING] [Line 4] Skipped due to error: 1 validation error for RectangleSchema
+width
+  Input should be a valid number, unable to parse string as a number [type=float_parsing, input_value='a', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.10/v/float_parsing
+2025-04-20 14:58:28,186 [INFO] Total valid area: 103.27
+2025-04-20 14:58:46,029 [INFO] Start
+2025-04-20 14:58:46,029 [WARNING] [Line 4] Skipped due to error: Expecting value: line 1 column 32 (char 31)
+2025-04-20 14:58:46,029 [INFO] Total valid area: 103.27
+2025-04-20 14:59:40,154 [INFO] Start
+2025-04-20 14:59:40,154 [WARNING] [Line 5] Skipped due to error: Unknown shape type: 'diamond'
+2025-04-20 14:59:40,154 [INFO] Total valid area: 128.27
