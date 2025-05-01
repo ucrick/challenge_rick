@@ -1,7 +1,9 @@
 import math
 import pytest
 import logging
-from main import Circle, Rectangle, Triangle, Trapezoid
+
+from shapes.implementations import Circle, Rectangle, Triangle, Trapezoid, UnknownShape
+from shapes.registry import shape_registry
 
 #Logging
 logger = logging.getLogger("test_logger")
@@ -57,6 +59,6 @@ def test_missing_rectangle_field():
 
 def test_invalid_shape_type():
     logger.info("Testing unknown shape type")
-    with pytest.raises(Exception):
+    with pytest.raises(ValueError, match="Unknown shape type"):
         UnknownShape({"type": "hexagon", "side": 5})
 

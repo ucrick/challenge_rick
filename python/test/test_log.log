@@ -1,0 +1,31 @@
+2025-04-20 23:25:21,212 [INFO] Testing circle area: result=28.27, expected=28.27
+2025-04-20 23:25:21,213 [INFO] Testing rectangle area: result=20.0, expected=20
+2025-04-20 23:25:21,215 [INFO] Testing triangle area: result=9.0, expected=9
+2025-04-20 23:25:21,216 [INFO] Testing trapezoid area: result=16.0, expected=16
+2025-04-20 23:25:21,217 [INFO] Testing invalid circle radius input
+2025-04-20 23:25:21,219 [INFO] Testing missing rectangle height field
+2025-04-20 23:25:21,220 [INFO] Testing unknown shape type
+2025-04-30 09:15:37,630 [INFO] Testing invalid circle radius input
+2025-04-30 09:15:37,630 [INFO] Testing missing rectangle height field
+2025-04-30 09:15:37,630 [INFO] Testing unknown shape type
+2025-04-30 09:19:07,849 [INFO] Testing circle area: result=28.27, expected=28.27
+2025-04-30 09:19:07,849 [INFO] Testing rectangle area: result=20.0, expected=20
+2025-04-30 09:19:07,849 [INFO] Testing triangle area: result=9.0, expected=9
+2025-04-30 09:19:07,849 [INFO] Testing trapezoid area: result=16.0, expected=16
+2025-04-30 09:19:07,849 [INFO] Testing invalid circle radius input
+2025-04-30 09:19:07,849 [INFO] Testing missing rectangle height field
+2025-04-30 09:19:07,849 [INFO] Testing unknown shape type
+2025-04-30 09:25:53,093 [INFO] Testing circle area: result=28.27, expected=28.27
+2025-04-30 09:25:53,109 [INFO] Testing rectangle area: result=20.0, expected=20
+2025-04-30 09:25:53,109 [INFO] Testing triangle area: result=9.0, expected=9
+2025-04-30 09:25:53,109 [INFO] Testing trapezoid area: result=16.0, expected=16
+2025-04-30 09:25:53,109 [INFO] Testing invalid circle radius input
+2025-04-30 09:25:53,109 [INFO] Testing missing rectangle height field
+2025-04-30 09:25:53,109 [INFO] Testing unknown shape type
+2025-04-30 09:26:33,453 [INFO] Testing circle area: result=28.27, expected=28.27
+2025-04-30 09:26:33,453 [INFO] Testing rectangle area: result=20.0, expected=20
+2025-04-30 09:26:33,453 [INFO] Testing triangle area: result=9.0, expected=9
+2025-04-30 09:26:33,453 [INFO] Testing trapezoid area: result=16.0, expected=16
+2025-04-30 09:26:33,453 [INFO] Testing invalid circle radius input
+2025-04-30 09:26:33,453 [INFO] Testing missing rectangle height field
+2025-04-30 09:26:33,453 [INFO] Testing unknown shape type
