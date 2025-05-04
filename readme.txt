@@ -10,3 +10,7 @@ Use pytest test_shapes.py in the root directory to perform functional validation
 -Does illegal input throw an exception
 -Missing field validation
 -Unregistered shape testing
+
+Support users to add shapes classes by implementing the.area() method and registering it in shape_registry
+Support reading data from .jsonl and .json files (by extending main)
+Support logging for easy debugging and error tracking
